@@ -1,0 +1,26 @@
+<?php
+$servername="localhost";
+$username="root";
+$pass="";
+$db="mobile";
+
+$conn= mysqli_connect($servername,$username,$pass,$db);
+
+if(isset($_POST['submit'])){
+    
+    $Email=$_POST['email'];
+    $Password=$_POST['password'];
+
+
+$sql="INSERT INTO `sim` (`Email`, `Password`) VALUES ('$Email', '$Password')";
+$result=mysqli_query($conn,$sql);
+if($result){
+    echo"record inserted";
+}
+else {
+    echo"The record was not inserted successfully because of this error ---> ". mysqli_error($conn);
+}
+
+
+}
+?>
